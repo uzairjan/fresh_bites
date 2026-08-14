@@ -9,7 +9,6 @@ import { CustomBuilderModal } from './components/CustomBuilderModal';
 import { ItemDetailModal } from './components/ItemDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
-import { TableReservationModal } from './components/TableReservationModal';
 import { StoryAndReviews } from './components/StoryAndReviews';
 import { Footer } from './components/Footer';
 import { MENU_ITEMS, SPECIAL_DEALS } from './data/menuData';
@@ -44,7 +43,6 @@ export default function App() {
   const [customizingItem, setCustomizingItem] = useState<MenuItem | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [isReservationOpen, setIsReservationOpen] = useState(false);
   const [checkoutOrderType, setCheckoutOrderType] = useState<'delivery' | 'pickup'>('delivery');
   const [checkoutPromoDiscount, setCheckoutPromoDiscount] = useState(0);
   const [checkoutPromoCode, setCheckoutPromoCode] = useState('');
@@ -236,7 +234,6 @@ export default function App() {
         setActiveTab={setActiveTab}
         cart={cart}
         setIsCartOpen={setIsCartOpen}
-        setIsReservationOpen={setIsReservationOpen}
       />
 
       {/* Main Content Area */}
@@ -332,12 +329,6 @@ export default function App() {
         promoCode={checkoutPromoCode}
         tip={checkoutTip}
         onOrderSuccess={handleOrderSuccess}
-      />
-
-      {/* Dine-In Table Reservation Modal */}
-      <TableReservationModal
-        isOpen={isReservationOpen}
-        onClose={() => setIsReservationOpen(false)}
       />
 
       {/* Floating Cart Pill on Mobile */}

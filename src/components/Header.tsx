@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'motion/react';
-import { ShoppingBag, Calendar, Menu as MenuIcon, X, Phone, Flame, Sparkles } from 'lucide-react';
+import { ShoppingBag, Menu as MenuIcon, X, Phone, Flame, Sparkles } from 'lucide-react';
 import { LOGO_URL, USER_AVATAR_URL, RESTAURANT_INFO } from '../data/menuData';
 import { ActiveTab, CartItem } from '../types';
 import { playSound } from '../utils/sound';
@@ -10,7 +10,6 @@ interface HeaderProps {
   setActiveTab: (tab: ActiveTab) => void;
   cart: CartItem[];
   setIsCartOpen: (open: boolean) => void;
-  setIsReservationOpen: (open: boolean) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -18,7 +17,6 @@ export const Header: React.FC<HeaderProps> = ({
   setActiveTab,
   cart,
   setIsCartOpen,
-  setIsReservationOpen,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -130,22 +128,6 @@ export const Header: React.FC<HeaderProps> = ({
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex items-center gap-3 md:gap-4"
         >
-          
-          {/* Reserve Table Button (Desktop) */}
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => {
-              playSound('click');
-              setIsReservationOpen(true);
-            }}
-            className="hidden sm:flex items-center gap-2 border border-[#D4AF37]/50 hover:border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 font-label-caps text-xs px-3.5 py-2.5 transition-all rounded-[2px] cursor-pointer"
-            title="Reserve Table at Gondomar"
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            <span>BOOK TABLE</span>
-          </motion.button>
-
           {/* Cart Trigger */}
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -263,17 +245,6 @@ export const Header: React.FC<HeaderProps> = ({
               })}
 
               <div className="pt-2 flex flex-col gap-3">
-                <button
-                  onClick={() => {
-                    playSound('click');
-                    setIsReservationOpen(true);
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full flex items-center justify-center gap-2 border border-[#D4AF37] text-[#D4AF37] font-label-caps text-xs py-3 tracking-wider rounded-[2px]"
-                >
-                  <Calendar className="w-4 h-4" />
-                  BOOK A TABLE IN GONDOMAR
-                </button>
                 <button
                   onClick={() => {
                     playSound('click');

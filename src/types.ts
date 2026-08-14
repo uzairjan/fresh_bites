@@ -90,16 +90,4 @@ export interface CustomerReview {
   verified: boolean;
 }
 
-export interface TableReservation {
-  id: string;
-  name: string;
-  phone: string;
-  email: string;
-  date: string;
-  time: string;
-  guests: number;
-  specialRequests?: string;
-  status: 'confirmed' | 'pending';
-}
-
 export type ActiveTab = 'home' | 'menu' | 'special-deals' | 'builder' | 'reviews' | 'contact';
