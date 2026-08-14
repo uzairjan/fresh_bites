@@ -1,0 +1,6 @@
+{
+  "name": "Fresh Bites Artisanal Comfort Food",
+  "description": "Artisanal wood-fired pizzas, smash burgers, and loaded shawarmas crafted with quality ingredients.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
